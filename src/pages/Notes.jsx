@@ -1,8 +1,14 @@
-import React from 'react'
+import {AiOutlineFileSearch} from 'react-icons/ai'
 
 const Notes = () => {
   return (
-    <div>Notes</div>
+    <section>
+      <header className="notes__header">
+        <h2> My Notes</h2>
+        <input type="text" autoFocus placeholder='Keyword...' />
+        <button> <AiOutlineFileSearch/> </button>
+      </header>
+    </section>
   )
 }
 
