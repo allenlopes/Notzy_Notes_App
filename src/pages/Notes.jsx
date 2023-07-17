@@ -8,6 +8,7 @@ const Notes = () => {
         {/* <input type="text" autoFocus placeholder='Keyword...' /> */}
         <button className='btn'> <AiOutlineFileSearch/> </button>
       </header>
+      <div className="notes__container"></div>
     </section>
   )
 }
