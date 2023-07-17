@@ -3,6 +3,8 @@ import dummyNotes from '../dummy_notes'
 import { Link } from 'react-router-dom'
 import{BsPlusLg} from 'react-icons/bs'
 
+import NoteItem from '../components/NoteItem'
+
 const Notes = () => {
   return (
     <section>
