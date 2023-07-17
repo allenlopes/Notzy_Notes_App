@@ -5,6 +5,7 @@ import EditNote from "./pages/EditNote"
 
 const App = () => {
   return (
+    <main id="app">
     <BrowserRouter>
     <Routes>
       < Route path="/" element={<Notes/>} />
@@ -12,6 +13,7 @@ const App = () => {
       < Route path="/edit-note/:id" element={<EditNote/>} />
     </Routes>
     </BrowserRouter>
+    </main>
   )
 }
 
