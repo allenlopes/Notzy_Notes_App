@@ -3,16 +3,19 @@ import { IoIosArrowBack } from "react-icons/io"
 import { useState } from "react"
 import { v4 as uuid } from 'uuid'
 
+import useCreateDate from "../components/useCreateDate"
+
 
 const CreateNote = () => {
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
+  const date = useCreateDate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if(title && details){
-      const note = {id: uuid(), title, details}
+      const note = {id: uuid(), title, details, date}
       console.log(note);
     }
 
