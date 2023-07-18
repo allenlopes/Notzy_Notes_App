@@ -6,7 +6,7 @@ const CreateNote = () => {
     <section>
       <header className="create-note__header">
         <Link to="/" className="btn"> <IoIosArrowBack /> </Link>
-        <button className="btn lg primar">Save</button>
+        <button className="btn lg primary">Save</button>
       </header>
       <form className="create-note__form">
         <input type="text" placeholder="Title" />
