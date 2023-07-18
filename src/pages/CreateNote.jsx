@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { IoIosArrowBack } from "react-icons/io"
 import { useState } from "react"
+import { v4 as uuid } from 'uuid'
 
 
 const CreateNote = () => {
@@ -11,7 +12,8 @@ const CreateNote = () => {
     e.preventDefault();
 
     if(title && details){
-      console.log(title, details);
+      const note = {id: uuid(), title, details}
+      console.log(note);
     }
 
   }
