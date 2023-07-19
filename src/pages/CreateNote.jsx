@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 import useCreateDate from "../components/useCreateDate"
 
 
-const CreateNote = () => {
+const CreateNote = ({setNotes}) => {
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
   const date = useCreateDate();
@@ -16,6 +16,8 @@ const CreateNote = () => {
 
     if(title && details){
       const note = {id: uuid(), title, details, date}
+      // Add this note to the Notes array so that if any new note is created it comes on top.
+      setNotes(prevNotes => [note, ...prevNotes])
       console.log(note);
     }
 
