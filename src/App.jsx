@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const App = () => {
   const [notes, setNotes] = useState([])
+  console.log(notes);
 
   return (
     <main id="app">
