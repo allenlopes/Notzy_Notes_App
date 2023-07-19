@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { IoIosArrowBack } from "react-icons/io"
 import { useState } from "react"
 import { v4 as uuid } from 'uuid'
@@ -10,6 +10,7 @@ const CreateNote = ({setNotes}) => {
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
   const date = useCreateDate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +19,9 @@ const CreateNote = ({setNotes}) => {
       const note = {id: uuid(), title, details, date}
       // Add this note to the Notes array so that if any new note is created it comes on top.
       setNotes(prevNotes => [note, ...prevNotes])
+
+      // Redirect to home page
+      navigate('/')
     }
 
   }
