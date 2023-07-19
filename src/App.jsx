@@ -4,11 +4,14 @@ import CreateNote from "./pages/CreateNote"
 import EditNote from "./pages/EditNote"
 // import dummyNotes from './dummy_notes'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
   const [notes, setNotes] = useState([])
-  console.log(notes);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes))
+  }, [notes])
 
   return (
     <main id="app">
