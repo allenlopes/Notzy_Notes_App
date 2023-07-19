@@ -1,11 +1,15 @@
 import { Link, useParams } from "react-router-dom"
 import { IoIosArrowBack } from "react-icons/io"
 import { RiDeleteBin6Line } from "react-icons/ri"
+import { useState } from "react";
 
 
 const EditNote = ({notes, setNotes}) => {
   const {id} = useParams();
-  console.log(id);
+  const note = notes.find((item) => item.id == id);
+  console.log(note);
+  const [title, setTitle] = useState(note.title)
+  const [details, setDetails] = useState(note.details)
   return (
     <section>
       <header className="create-note__header">
