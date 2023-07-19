@@ -18,7 +18,6 @@ const CreateNote = ({setNotes}) => {
       const note = {id: uuid(), title, details, date}
       // Add this note to the Notes array so that if any new note is created it comes on top.
       setNotes(prevNotes => [note, ...prevNotes])
-      console.log(note);
     }
 
   }
