@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import{BsPlusLg} from 'react-icons/bs'
 
 import NoteItem from '../components/NoteItem'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const Notes = ({notes}) => {
@@ -18,6 +18,8 @@ const Notes = ({notes}) => {
       }
     }))
   }
+
+  useEffect(handleSearch, [text])
 
   return (
     <section>
