@@ -5,9 +5,10 @@ import { useState } from "react";
 import useCreateDate from "../components/useCreateDate";
 
 
+
 const EditNote = ({notes, setNotes}) => {
   const {id} = useParams();
-  const note = notes.find((item) => item.id == id);
+  const note = notes.find((item) => item.id === id);
   const [title, setTitle] = useState(note.title)
   const [details, setDetails] = useState(note.details)
   const date = useCreateDate();
@@ -21,7 +22,7 @@ const EditNote = ({notes, setNotes}) => {
       const newNote = {...note, title, details, date}
 
       const newNotes = notes.map(item => {
-        if(item.id == id) {
+        if(item.id === id) {
           item = newNote;
         }
         return item;
@@ -35,12 +36,20 @@ const EditNote = ({notes, setNotes}) => {
   }
 
 
+  const handleDelete = () => {
+    const newNotes = notes.filter(item => item.id !== id);
+
+    setNotes(newNotes);
+    navigate('/')
+  }
+
+
   return (
     <section>
       <header className="create-note__header">
         <Link to="/" className="btn"> <IoIosArrowBack/> </Link>
         <button className="btn lg primary" onClick={handleForm}>Save</button>
-        <button className="btn danger"> <RiDeleteBin6Line/> </button>
+        <button className="btn danger" onClick={handleDelete}> <RiDeleteBin6Line/> </button>
       </header>
       <form className="create-note__form" onSubmit={handleForm}>
         <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} autoFocus/>
