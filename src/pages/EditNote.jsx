@@ -5,7 +5,6 @@ import { useState } from "react";
 import useCreateDate from "../components/useCreateDate";
 
 
-
 const EditNote = ({notes, setNotes}) => {
   const {id} = useParams();
   const note = notes.find((item) => item.id === id);
@@ -36,10 +35,12 @@ const EditNote = ({notes, setNotes}) => {
 
 
   const handleDelete = () => {
-    const newNotes = notes.filter(item => item.id !== id);
+    if(window.confirm('Are you sure you want to delete')){
+      const newNotes = notes.filter(item => item.id !== id);
 
-    setNotes(newNotes);
-    navigate('/')
+      setNotes(newNotes);
+      navigate('/')
+    }
   }
 
 
