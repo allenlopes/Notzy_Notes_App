@@ -13,7 +13,7 @@ const EditNote = ({notes, setNotes}) => {
   const date = useCreateDate();
   const navigate = useNavigate();
 
-// The next handleForm is to edit a already created note and the edited contents to be saved
+// The "handleForm" function is to edit a already created note and the edited contents to be saved ->
   const handleForm = (e) =>{
     e.preventDefault();
 
@@ -30,7 +30,7 @@ const EditNote = ({notes, setNotes}) => {
       setNotes(newNotes);
     }
 
-    // Redirect to home page once clicked on "Save" button after edited.
+    // Redirect to home page once clicked on "Save" button after edited using the useNavigate function.
     navigate('/')
   }
 
@@ -39,10 +39,10 @@ const EditNote = ({notes, setNotes}) => {
     <section>
       <header className="create-note__header">
         <Link to="/" className="btn"> <IoIosArrowBack/> </Link>
-        <button className="btn lg primary">Save</button>
+        <button className="btn lg primary" onClick={handleForm}>Save</button>
         <button className="btn danger"> <RiDeleteBin6Line/> </button>
       </header>
-      <form className="create-note__form">
+      <form className="create-note__form" onSubmit={handleForm}>
         <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} autoFocus/>
         <textarea rows="28" placeholder="Notes Details..." value={details} onChange={(e) => setDetails(e.target.value)}></textarea>
       </form>
