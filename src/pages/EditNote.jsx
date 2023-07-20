@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const EditNote = ({notes, setNotes}) => {
   const {id} = useParams();
-  const note = notes.find((item) => item.id == id);
+  const note = notes.find((item) => item.id === id);
   console.log(note);
   const [title, setTitle] = useState(note.title)
   const [details, setDetails] = useState(note.details)
@@ -18,8 +18,8 @@ const EditNote = ({notes, setNotes}) => {
         <button className="btn danger"> <RiDeleteBin6Line/> </button>
       </header>
       <form className="create-note__form">
-        <input type="text" placeholder="Title" />
-        <textarea rows="28" placeholder="Notes Details..."></textarea>
+        <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} autoFocus/>
+        <textarea rows="28" placeholder="Notes Details..." value={details} onChange={(e) => setDetails(e.target.value)}></textarea>
       </form>
     </section>
   )
