@@ -27,7 +27,6 @@ const EditNote = ({notes, setNotes}) => {
         }
         return item;
       })
-
       setNotes(newNotes);
     }
 
