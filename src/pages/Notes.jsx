@@ -1,5 +1,5 @@
 import {AiOutlineFileSearch} from 'react-icons/ai'
-import {GrClose} from 'react-icons/gr'
+import {MdClose} from 'react-icons/md'
 import{BsPlusLg} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
@@ -29,7 +29,7 @@ const Notes = ({notes}) => {
         {!showSearch && <h2> My Notes</h2> }
         {showSearch && <input type="text" value={text} onChange={(e) => {setText(e.target.value);
         handleSearch();}} autoFocus placeholder='Keyword...' /> }
-        <button className='btn' onClick={() => setShowSearch(prevState => !prevState)}>{showSearch ?<GrClose/> : <AiOutlineFileSearch/>} </button>
+        <button className='btn' onClick={() => setShowSearch(prevState => !prevState)}>{showSearch ?<MdClose/> : <AiOutlineFileSearch/>} </button>
       </header>
       <div className="notes__container">
         {
