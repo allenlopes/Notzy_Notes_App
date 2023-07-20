@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import { IoIosArrowBack } from "react-icons/io"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { useState } from "react";
@@ -11,6 +11,7 @@ const EditNote = ({notes, setNotes}) => {
   const [title, setTitle] = useState(note.title)
   const [details, setDetails] = useState(note.details)
   const date = useCreateDate();
+  const navigate = useNavigate();
 
 // The next handleForm is to edit a already created note and the edited contents to be saved
   const handleForm = (e) =>{
@@ -28,6 +29,9 @@ const EditNote = ({notes, setNotes}) => {
 
       setNotes(newNotes);
     }
+
+    // Redirect to home page once clicked on "Save" button after edited.
+    navigate('/')
   }
 
 
