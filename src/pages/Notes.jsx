@@ -1,6 +1,8 @@
 import {AiOutlineFileSearch} from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import {GrClose} from 'react-icons/gr'
 import{BsPlusLg} from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+
 
 import NoteItem from '../components/NoteItem'
 import { useEffect, useState } from 'react';
@@ -27,7 +29,7 @@ const Notes = ({notes}) => {
         {!showSearch && <h2> My Notes</h2> }
         {showSearch && <input type="text" value={text} onChange={(e) => {setText(e.target.value);
         handleSearch();}} autoFocus placeholder='Keyword...' /> }
-        <button className='btn' onClick={() => setShowSearch(prevState => !prevState)}> <AiOutlineFileSearch/> </button>
+        <button className='btn' onClick={() => setShowSearch(prevState => !prevState)}>{showSearch ?<GrClose/> : <AiOutlineFileSearch/>} </button>
       </header>
       <div className="notes__container">
         {
