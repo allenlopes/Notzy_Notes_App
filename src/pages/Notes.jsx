@@ -23,8 +23,8 @@ const Notes = ({notes}) => {
     <section>
       <header className="notes__header">
         {!showSearch && <h2> My Notes</h2> }
-        {showSearch && <input type="text" value={text} onChange={(e) => setText(e.target.value)}
-        autoFocus placeholder='Keyword...' /> }
+        {showSearch && <input type="text" value={text} onChange={(e) => {setText(e.target.value);
+        handleSearch();}} autoFocus placeholder='Keyword...' /> }
         <button className='btn' onClick={() => setShowSearch(prevState => !prevState)}> <AiOutlineFileSearch/> </button>
       </header>
       <div className="notes__container">
