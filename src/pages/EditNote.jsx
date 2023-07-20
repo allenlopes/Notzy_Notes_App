@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import { IoIosArrowBack } from "react-icons/io"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { useState } from "react";
+import useCreateDate from "../components/useCreateDate";
 
 
 const EditNote = ({notes, setNotes}) => {
@@ -9,6 +10,25 @@ const EditNote = ({notes, setNotes}) => {
   const note = notes.find((item) => item.id == id);
   const [title, setTitle] = useState(note.title)
   const [details, setDetails] = useState(note.details)
+  const date = useCreateDate();
+
+// The next handleForm is to edit a already created note and the edited contents to be saved
+  const handleForm = (e) =>{
+    e.preventDefault();
+
+    if(title && details) {
+      const newNote = {...note, title, details, date}
+
+      const newNotes = notes.map(item => {
+        if(item.id == id) {
+          item = newNote;
+        }
+        return item;
+      })
+
+      setNotes(newNotes);
+    }
+  }
 
 
   return (
